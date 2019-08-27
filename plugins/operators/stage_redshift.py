@@ -39,7 +39,7 @@ class StageToRedshiftOperator(BaseOperator):
 
         if create_table_sql:
             self.log.info('Creating destination table if it does not exist')
-            redshift.run(f'{self.create_table_sql}')
+            redshift.run(self.create_table_sql)
 
         self.log.info('Clearing data from destination table')
         redshift.run(f'DELETE FROM {self.table}')
