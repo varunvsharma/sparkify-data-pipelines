@@ -24,8 +24,9 @@ class LoadFactOperator(BaseOperator):
         self.log.info('LoadFactOperator not implemented yet')
         redshift = PostgresHook(postgres_conn_id=self.redshift_conn_id)
 
-        self.log.info('Creating fact table if it does not exist')
-        redshift.run(self.create_table_sql)
+        if create_table_sql:
+            self.log.info('Creating fact table if it does not exist')
+            redshift.run(self.create_table_sql)
 
         self.log.info('Inserting data into fact table')
         reshift.run(f'INSERT INTO {self.table} {self.values}')
