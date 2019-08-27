@@ -64,7 +64,7 @@ class SqlQueries:
         );
     """)
 
-    staging_songs_table_create("""
+    staging_songs_table_create = ("""
         CREATE TABLE IF NOT EXISTS public.staging_songs (
             num_songs int4,
             artist_id varchar(256),
@@ -79,7 +79,7 @@ class SqlQueries:
         );
     """)
 
-    songplay_table_create("""
+    songplay_table_create = ("""
         CREATE TABLE IF NOT EXISTS public.songplays (
 	        playid varchar(32) NOT NULL,
 	        start_time timestamp NOT NULL,
@@ -94,7 +94,7 @@ class SqlQueries:
         );
     """)
 
-    user_table_create("""
+    user_table_create = ("""
         CREATE TABLE IF NOT EXISTS public.users (
             userid int4 NOT NULL,
             first_name varchar(256),
@@ -105,7 +105,7 @@ class SqlQueries:
         );
     """)
 
-    song_table_create("""
+    song_table_create = ("""
         CREATE TABLE IF NOT EXISTS public.songs (
             songid varchar(256) NOT NULL,
             title varchar(256),
@@ -116,7 +116,7 @@ class SqlQueries:
         );
     """)
 
-    artist_table_create("""
+    artist_table_create = ("""
         CREATE TABLE IF NOT EXISTS public.artists (
             artistid varchar(256) NOT NULL,
             name varchar(256),
@@ -126,7 +126,7 @@ class SqlQueries:
         );
     """)
 
-    time_table_create("""
+    time_table_create = ("""
         CREATE TABLE public."time" (
             start_time timestamp NOT NULL,
             "hour" int4,
