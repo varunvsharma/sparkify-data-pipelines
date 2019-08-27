@@ -37,7 +37,7 @@ class StageToRedshiftOperator(BaseOperator):
         credentials = aws_hook.get_credentials()
         redshift = PostgresHook(postgres_conn_id=self.redshift_conn_id)
 
-        if create_table_sql:
+        if self.create_table_sql:
             self.log.info('Creating destination table if it does not exist')
             redshift.run(self.create_table_sql)
 
