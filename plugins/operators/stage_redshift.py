@@ -51,7 +51,7 @@ class StageToRedshiftOperator(BaseOperator):
                             FROM {s3_path}
                             FORMAT AS {self.data_format} 'auto'
                             ACCESS_KEY_ID '{credentials.access_key}'
-                            SECRET_ACCESS_KEY '{credentials.secret_access_key}';
+                            SECRET_ACCESS_KEY '{credentials.secret_key}';
                             """
 
 
