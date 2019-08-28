@@ -127,7 +127,7 @@ class SqlQueries:
     """)
 
     time_table_create = ("""
-        CREATE TABLE public."time" (
+        CREATE TABLE IF NOT EXISTS public."time" (
             start_time timestamp NOT NULL,
             "hour" int4,
             "day" int4,
