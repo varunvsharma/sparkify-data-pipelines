@@ -10,14 +10,14 @@ class LoadDimensionOperator(BaseOperator):
     def __init__(self,
                  redshift_conn_id="",
                  table="",
-                 values="",
+                 sql="",
                  insert_mode="truncate",
                  *args, **kwargs):
 
         super(LoadDimensionOperator, self).__init__(*args, **kwargs)
         self.redshift_conn_id = redshift_conn_id
         self.table = table
-        self.values = values
+        self.sql = sql
         self.insert_mode = insert_mode
 
     def execute(self, context):
@@ -29,4 +29,4 @@ class LoadDimensionOperator(BaseOperator):
             redshift.run(f'TRUNCATE {self.table}')
 
         self.log.info('Inserting data into dimension table')
-        redshift.run(f'INSERT INTO {self.table} {self.values}')
+        redshift.run(f'INSERT INTO {self.table} {self.sql')

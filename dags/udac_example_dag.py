@@ -53,7 +53,7 @@ load_songplays_table = LoadFactOperator(
     dag=dag,
     redshift_conn_id='redshift',
     table='songplays',
-    values=SqlQueries.songplay_table_insert
+    sql=SqlQueries.songplay_table_insert
 )
 
 load_user_dimension_table = LoadDimensionOperator(
@@ -61,7 +61,7 @@ load_user_dimension_table = LoadDimensionOperator(
     dag=dag,
     redshift_conn_id='redshift',
     table='users',
-    values=SqlQueries.user_table_insert,
+    sql=SqlQueries.user_table_insert,
     insert_mode='truncate'
 )
 
@@ -70,7 +70,7 @@ load_song_dimension_table = LoadDimensionOperator(
     dag=dag,
     redshift_conn_id='redshift',
     table='songs',
-    values=SqlQueries.song_table_insert,
+    sql=SqlQueries.song_table_insert,
     insert_mode='truncate'
     
 )
@@ -80,7 +80,7 @@ load_artist_dimension_table = LoadDimensionOperator(
     dag=dag,
     redshift_conn_id='redshift',
     table='artists',
-    values=SqlQueries.artist_table_insert,
+    sql=SqlQueries.artist_table_insert,
     insert_mode='truncate'
 )
 
@@ -89,7 +89,7 @@ load_time_dimension_table = LoadDimensionOperator(
     dag=dag,
     redshift_conn_id='redshift',
     table='time',
-    values=SqlQueries.time_table_insert,
+    sql=SqlQueries.time_table_insert,
     insert_mode='truncate'
 )
 
