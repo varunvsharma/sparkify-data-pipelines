@@ -47,6 +47,7 @@ class StageToRedshiftOperator(BaseOperator):
                             ACCESS_KEY_ID '{credentials.access_key}'
                             SECRET_ACCESS_KEY '{credentials.secret_key}';
                             """
+        redshift.run(formatted_sql)
 
 
 
