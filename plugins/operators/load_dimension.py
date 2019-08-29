@@ -29,4 +29,4 @@ class LoadDimensionOperator(BaseOperator):
             redshift.run(f'TRUNCATE {self.table}')
 
         self.log.info('Inserting data into dimension table')
-        redshift.run(f'INSERT INTO {self.table} {self.sql')
+        redshift.run(f'INSERT INTO {self.table} {self.sql}')
