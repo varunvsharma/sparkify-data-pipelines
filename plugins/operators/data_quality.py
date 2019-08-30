@@ -13,7 +13,7 @@ class DataQualityOperator(BaseOperator):
                  *args, **kwargs):
 
         super(DataQualityOperator, self).__init__(*args, **kwargs)
-        self.redshift_conn_id = redshift_conn_id,
+        self.redshift_conn_id = redshift_conn_id
         self.table = table
 
     def execute(self, context):
@@ -29,7 +29,7 @@ class DataQualityOperator(BaseOperator):
                 if records is None or len(records) < 1:
                     raise ValueError(f'No records in table {t}')
                 else:
-                    self.log(f'Data quality check on table {t} passed with {records[0][0]} records')
+                    self.log.info(f'Data quality check on table {t} passed with {records[0][0]} records')
         else:
             records = redshift.get_records(f'SELECT COUNT(*) FROM {self.table}')
             
